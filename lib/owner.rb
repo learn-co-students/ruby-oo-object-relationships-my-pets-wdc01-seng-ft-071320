@@ -50,13 +50,13 @@ class Owner
   end
   
   def walk_dogs
-    self.dogs.each do |dog|
+    self.dogs.map do |dog|
       dog.mood = "happy"
     end
   end
 
   def feed_cats
-    self.cats.each do |cat|
+    self.cats.map do |cat|
       cat.mood = "happy"
     end
   end
