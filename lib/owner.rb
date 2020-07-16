@@ -36,6 +36,7 @@ class Owner
   def dogs
     Dog.all.select do |dog|
       dog.owner == self
+      #binding.pry
     end
   end
 
@@ -48,19 +49,31 @@ class Owner
   end
 
 def walk_dogs
-  self.dogs.mood = "happy"
+  self.dogs.map do |each_dog| 
+    each_dog.mood = "happy"
+  end
 end
 
+def feed_cats
+  self.cats.map do |each_cat|
+    each_cat.mood = "happy"
+  end
+end
+
+def sell_pets
+  self.cats.map do |each_cat|
+    each_cat.mood = "nervous"
+    each_cat.owner = nil
+  end
   
-
-
-
-
-
-
-
-
-
+  self.dogs.map do |each_dog| 
+    each_dog.mood = "nervous"
+    each_dog.owner = nil
+  end
 end
 
+def list_pets
+  "I have #{self.dogs.count} dog(s), and #{self.cats.count} cat(s)."
+end
 
+end
