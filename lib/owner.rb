@@ -48,9 +48,43 @@ class Owner
   end
 
 def walk_dogs
-  self.dogs.mood = "happy"
+  self.dogs.map do |dog|
+  dog.mood = "happy"
+  end
 end
 
+def feed_cats
+  self.cats.map do |cat|
+    cat.mood = "happy"
+  end
+end
+
+def sell_pets
+  #self.dogs.map do |dog|
+   # dog.mood = "nervous"
+    #dog.owner = nil
+  #end
+  #self.cats.map do |cat|
+   # cat.mood = "nervous"
+    #cat.owner = nil
+  #end
+#end
+  pets = self.dogs + self.cats
+  pets.map do |pet|
+    pet.mood = "nervous"
+    pet.owner = nil
+  end
+end
+
+def list_pets
+  "I have #{self.dogs.count} dog(s), and #{self.cats.count} cat(s)."
+end
+
+
+
+  
+
+        
   
 
 
