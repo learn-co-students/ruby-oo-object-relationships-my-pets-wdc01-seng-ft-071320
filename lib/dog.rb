@@ -3,9 +3,16 @@ require_relative "./owner.rb"
 require 'pry'
 
 class Dog
-  def initialize(dog_name, owner)
-    @dog_name = dog_name
+  attr_reader :name
+  attr_accessor :owner, :mood
+  @@dog = [] 
+  def initialize(name, owner)
+    @name = name
     @owner = owner
+    @mood = "nervous"
+    @@dog << self
   end
-  # code goes here
+  def self.all
+    return @@dog
+  end
 end
