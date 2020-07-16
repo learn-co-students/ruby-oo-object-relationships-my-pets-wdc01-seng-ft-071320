@@ -10,7 +10,7 @@ class Owner
   end
 
   def say_species
-    "I am a #{@species}."
+    "I am a #{self.species}."
   end
 
   def self.all
@@ -46,28 +46,32 @@ class Owner
   end
 
   def walk_dogs
-    Dog.all.each do |dog|
+    self.dogs.map do |dog|
       dog.mood = "happy"
     end
   end
 
   def feed_cats
-    Cat.all.each do |cat|
+    self.cats.map do |cat|
       cat.mood = "happy"
     end
   end
 
   def sell_pets
-    self.cats.each do |cat|
-      cat.mood = "nervous"
-      cat.owner = nil
-    end
+    # self.cats.map do |cat|
+    #   cat.mood = "nervous"
+    #   cat.owner = nil
+    # end
 
-    self.dogs.each do |dog|
-      dog.mood = "nervous"
-      dog.owner = nil
+    # self.dogs.map do |dog|
+    #   dog.mood = "nervous"
+    #   dog.owner = nil
+    # end
+    pets = self.dogs + self.cats
+    pets.map do |pet|
+      pet.mood = "nervous"
+      pet.owner = nil
     end
-    
   end 
 
   def list_pets
